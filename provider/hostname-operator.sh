@@ -2,7 +2,7 @@
 
 cd ~
 
-export AKASH_KEY_NAME=my-wallet
+export AKASH_KEY_NAME=provider-wallet
 
 provider-services keys export $AKASH_KEY_NAME
 

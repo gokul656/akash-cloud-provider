@@ -1,4 +1,4 @@
-export ACCOUNT_ADDRESS="$(provider-services keys show my-wallet -a)"
+export ACCOUNT_ADDRESS="$(provider-services keys show provider-wallet -a)"
 export KEY_PASSWORD=gokul656
 export DOMAIN=gokulcodes.xyz
 export NODE=https://rpc.sandbox-01.aksh.pw:443
@@ -44,8 +44,11 @@ kubectl apply -f https://raw.githubusercontent.com/akash-network/provider/v0.4.8
 
 helm install akash-provider akash/provider -n akash-services -f provider.yaml
 
+sleep 5
+
 kubectl -n akash-services logs -l app=akash-provider --tail 200 -f -c init
 kubectl -n akash-services logs -l app=akash-provider --tail 200 -f
 
 # kubectl get pods -n akash-services
 # helm uninstall akash-provider -n akash-services
+# kubectl logs akash-provider-0 -n akash-services --follow
